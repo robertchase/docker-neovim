@@ -8,8 +8,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     curl
 
 RUN pip install --upgrade pip \
-    pylint \
-    pytest
+    neovim \
+    jedi \
+    flake8 \
+    autopep8
 
 RUN git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && yes | ~/.fzf/install
 
