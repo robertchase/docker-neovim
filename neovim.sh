@@ -5,19 +5,21 @@ WORKING=
 for i in "$@"
 do
     case $i in
-		-h|--help)
-		    echo "open neovim in docker"
-			echo '  ${GIT:-$HOME/git} mounted as /opt/git'
-			echo ""
-		    echo "  -w=<dir> --working=<dir> set working directory"
-		    echo "  -o=<dir> --opt=<dir> add docker parameters"
-			echo ""
-		    echo "  <name> use /opt/git/<name> as working directory"
-		    echo "  . use /opt/git/<basename pwd> as working directory"
-			exit 0
-		;;
+        -h|--help)
+            ech "open neovim in docker"
+            echo '  ${GIT:-$HOME/git} mounted as /opt/git'
+            echo ""
+            echo "  -w=<dir> --working=<dir> set working directory"
+            echo "  -o=<dir> --opt=<dir> add docker parameters"
+            echo ""
+            echo "  <name> use /opt/git/<name> as working directory"
+            echo "  . use /opt/git/<basename pwd> as working directory"
+            exit 0
+        ;;
         -w=*|--working=*)
-            WORKING="-w ${i#*=}"
+            DIR="${i#*=}"
+            [ "${DIR:0:1}" = "~" ] && DIR="/opt/home${DIR:1}"
+            WORKING="-w $DIR"
         ;;
         -o=*|--opt=*)
             OPT="$OPT ${i#*=}"

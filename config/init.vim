@@ -35,8 +35,7 @@ syntax on
 syntax enable
 " colorscheme
 let base16colorspace=256
-" colorscheme base16-gruvbox-dark-hard
-colo desert
+colorscheme base16-gruvbox-dark-hard
 set background=dark
 " True Color Support if it's avaiable in terminal
 if has("termguicolors")
