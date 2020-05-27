@@ -32,7 +32,13 @@ do
             WORKING="-w /opt/git/$(basename $LAUNCH_DIR)"
         ;;
         *)
-            WORKING="-w /opt/git/$i"
+            DIR="$i"
+            if [ "${DIR:0:${#HOME}}" = "${HOME}" ]
+            then
+                WORKING="-w /opt/home${DIR:${#HOME}}"
+            else
+                WORKING="-w /opt/git/$DIR"
+            fi
         ;;
     esac
 done
