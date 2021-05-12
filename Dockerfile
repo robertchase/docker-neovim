@@ -1,11 +1,12 @@
 FROM python:3.7-slim
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    curl \
+    git \
     neovim \
     python-neovim \
     python3-neovim \
-    git \
-    curl
+    tree
 
 RUN pip install --upgrade pip \
     neovim \
