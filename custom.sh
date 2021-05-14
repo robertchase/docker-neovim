@@ -15,5 +15,14 @@ alias viz='nvim $(fzf)'
 
 function pygrep ()
 {
-    grep -B2 -A2 -rin --colour --exclude-dir .ropeproject --include \*.py "$1" ${2:-.}
+    grep -B2 -A2 -rin --colour --include \*.py "$1" ${2:-.}
+}
+
+function pyfiles {
+    find ${1:-.} -name \*.py -exec grep . {} + | awk -F: '{print $1}' | sort -u
+}
+
+# very approximate line count
+function pylines {
+    find ${1:-.} -name \*.py -exec grep . {} + | grep -v 'py: *#' | wc -l
 }
