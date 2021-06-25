@@ -11,7 +11,7 @@ alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
 export PS1="\[\033[01;34m\]neovim\[\033[0m\]:\w# "
 
-alias viz='nvim $(fzf)'
+alias viz='vim $(fzf --preview "bat --style=numbers --color=always --theme=ansi --line-range :500 {}")'
 
 function pygrep ()
 {
