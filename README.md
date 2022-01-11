@@ -27,10 +27,11 @@ fetched once, and added to the docker image.
 3. `nvim` (ignore errors)
 4. `:PlugInstall`
 5. exit `nvim`
-6. `cp -r .config/nvim/plugged/
+6. move/remove the target directory (plugged)
+7. `cp -r ~/.config/nvim/plugged/
 /opt/home/git/docker-neovim/config/plugged/`
-7. exit container
-8. `make build` again to pick up all the plugins
+8. exit container
+9. `make build` again to pick up all the plugins
 
 **Note:** the destination in step 6 may be different
 based upon
