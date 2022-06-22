@@ -8,6 +8,9 @@ set rtp+=~/.fzf
 hi ColorColumn ctermbg=255
 autocmd BufRead *.py setlocal colorcolumn=80
 
+" clean up trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " plugins
 call plug#begin('~/.config/nvim/plugged')
 
